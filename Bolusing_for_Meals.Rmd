@@ -1,0 +1,35 @@
+# Bolusing for Meals
+
+***FreeAPS (FAX)* does not actually give meal bolus recommendations as does *Loop***. Here's what the Meals section of [LoopAndLearn FreeAPS docs](https://www.loopandlearn.org/freeaps-x/) recommends:
+
+**The built-in function to give a bolus is not a bolus calculator** in the same way as *Loop* has one, so don't expect it to give you enough insulin.
+
+**It takes the *insulinReq* calculation and uses it to provide a bolus estimate**. The *insulinReq* value is calculated based on a number of prediction curves, and when carbs are added, it mediates the effect of carbs with the other curves. 
+ 
+***It's not a bolus calculator***. The ***insulinReq*** value is not necessarily as much insulin as the normal meal bolus would be (it's conservative for safety reasons). 
+
+**The recommendation with *oref1* is to bolus 60%-75% of required meal bolus** and leave the algorithm to deal with variation in absorption. This is the way most people use it.
+
+## Rule-of-Thumb Meal Bolusing
+
+**Rather than pull out a calculator**, one pre-bolus strategy might be to form a rule-of-thumb scale for yourself like the following. You should make your own based on your needs and ***Carb Ratio (CR)***:
+
+* **Small meal** 20g or less --> **2U**
+* **Medium-size meal** 20g-40g --> **3U**
+* **Big meal** 40g or more --> **4U**
+
+**Your scale should be based upon your carb ratio and the % of upfront bolus that you prefer**. For example, with a Carb Ratio of 10, the above meal boluses would provide a:
+* 100% upfront bolus for 20g
+* 75% upfront bolus for 40g, and
+* 67% upfront bolus for 60g
+
+## Let iAPS Do Its Work
+
+With an appropriate pre-bolus and Settings, **you should NOT need to issue manual boluses after your meal**. This may be a difficult task coming from Loop!
+
+If you used automatic bolus with *Loop* or the *FreeAPS* fork, youll find Temp Basal a little slower than you are used to, but its worth taking the time to test and adjust your settings before you turn on *SMB/UAM*.
+
+Observe for a few days and make adjustments as needed so that you wont have to issue correction meal boluses.
+
+(Thanks to [LoopAndLearn](https://www.loopandlearn.org) for this.)
+

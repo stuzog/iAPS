@@ -1,0 +1,103 @@
+# iAPS User Guide
+
+*Updated 220623 with instructions for upgrading from Loop to iAPS*
+
+**Steps** and **Settings** for FreeAPS X, in order of listing in the app.  
+If not mentioned, leave existing _Default Settings_
+
+## Settings
+**Click** _Cog Wheel_ (bottom right)
+
+### SERVICES
+
+#### Nightscout
+- *URL* - **Your Nightscout URL** ( NO / at the end)
+- *Password* -  **Your API Secret** as the *password*
+- **Connect** - Tap —> *Connected!*
+- *Allow Uploads* - **Enable**
+
+#### CGM
+- *Type* - **Dexcom G6**
+- *Transmitter ID* - **Enter current**
+
+#### Notifications
+- Your choice, e.g. All turned **Off** set **High ---> 10**
+
++++
+
+### CONFIGURATION
+
+#### Preferences
+
+##### FREEAPS X
+- *Recommended Insulin Fraction* **—> 2**
+
+##### OPENAPS MAIN Settings
+- *Insulin Curve* - Set to the **type of insulin** you are using
+- *Max IOB* - **raise to 10**
+
+##### DYNAMIC SETTINGS
+- *Dynamic CR* - **Enable**
+- *Adjust Basal* - **Enable**
+
+##### OPENAPS SMB SETTINGS
+- *Enable SMB ...* options - **Enable All**
+- *Enable UAM* - **Enable**
+- *Max Delta-BG Threshold SMB* **—> 0.3**
+- *SMB Interval* **—> 1**
+- *Bolus Increment* **—> 0.05 *ONLY if using Omnipod***
+
+##### OPENAPS TARGETS SETTINGS
+- *High TempTarget Raises Sensitivity* - **Enable**
+- *Low TempTarget Raises Sensitivity* - **Enable**
+- *Sensitivity Raises Target* - **Enable**
+- *Resistance Lowers Target* - **Enable**
+
++++
+
+#### Basal Profile
+- **Copy from old Loop/FAX**
+
+#### Insulin Sensitivities
+- **Use _Autotune_ value**
+
+#### Carb Ratios
+- **Use _Autotune calculated value_**
+
+#### Target Ranges
+- **Set to whatever range with which you are comfortable**  
+**Lower range** is the one that matters e.g. 5.5 - 5.5, 24/7
+
+#### Autotune 
+- **Enable**
+
+## Apple Health
+- **Enable Read** and **Write** in iPhone _Apple Health Settings_
+
+## Add Pump
+- To add a pump to a new FreeAPS-X setup, first _Disable OrangeLink/RileyLink_ in the old pump setup. Only one pump can be controlled.
+ 
+## Closed Loop
+- **Enable**
+
++++
+
+## Upgrading From Loop to iAPS
+**ATTENTION:** You must disconnect RileyLink/OrangeLink/EmaLink from Loop BEFORE trying to connect a new OmniPod to iAPS at a scheduled or other Pod change:
+
+Tap *Replace Pod* BEFORE disconnecting your RileyLink
+- *Settings -> OmniPod* screen
+- (Also available from *Pump/Pod icon* in Loop top Header)
+
+Turn RileyLink switch OFF
+- RileyLink *Green LED* will turn off
+
+Close the Loop App
+- *Swipe Up* Loop icon on *Home Screen* 
+
+Back in iAPS, select *Omnipod* in *Settings -> Pump*
+- RileyLink should be recognised immediately
+- *Turn RileyLink ON*
+
+Fill new OmniPod, attach to body
+- *Start New Pod*

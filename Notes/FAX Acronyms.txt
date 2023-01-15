@@ -1,0 +1,17 @@
+FAX Acronyms
+============
+Acronym,Definition
+BG,Blood Glucose
+BGI,Blood Glucose Impact
+CI,Carb Impact
+COB,Carbs On Board
+CR,Carb Ratio
+ICR,Insulin to Carb Ratio
+IOB,Insulin On Board
+ISF,Insulin Sensitivity Factor
+ISR,Insulin Sensitivity Ratio
+RIF,
+SMB,Super Micro Bolus
+SR,Sensitivity Ratio
+UAM,Unannounced Meals
+ZT,Zero-Temp

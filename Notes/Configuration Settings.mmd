@@ -1,0 +1,47 @@
+# Configuration Settings
+## Search
+* To disable searching, set the option `search: false` in config.
+
+## Theme
+* The `Theme Settings Button` can be removed from the toolbar by setting `fontsettings: null (or no)`.
+	* Set the initial value of these settings via the `fontsettings` option. 
+	* Font size is measured on a scale of 0-4; initial value can be set to 1, 2 (default), 3, or 4. 
+
+## Download
+* `download` option adds a download button to the toolbar. 
+	* Takes either a character vector, or a list of character vectors with the length of each vector being 2. 
+	* A character vector should be either a vector of filenames, or filename extensions; both of the following are okay:
+
+```
+    download: ["book.pdf", "book.epub"]
+    download: ["pdf", "epub", "mobi"]
+```
+    
+* If you only provide `filename` extensions, `filename` is derived from the book filename of the configuration file `_bookdown.yml` (see Section 4.4). 
+* If `download` is null, `gitbook()` will look for PDF, EPUB, and MOBI files in the book output directory, and automatically add them to the download option.
+* To suppress the download button, set `download: false`. 
+* All files for readers to download will be displayed in a drop-down menu, and the filename extensions are used as the menu text.
+	* If the only available format for readers to download is `PDF`, the download button will be a single PDF button instead of a drop-down menu.
+	* An alternative form for the value of the download option is a list of length-2 vectors, e.g.,
+
+```
+    download: [["book.pdf", "PDF"], ["book.epub", "EPUB"]]
+```
+
+
+You can also write it as:
+
+    download:
+      - ["book.pdf", "PDF"]
+      - ["book.epub", "EPUB"]
+
+Each vector in the list consists of the filename and the text to be displayed in the menu. This form allows you to customize the menu text, e.g., you may have two different copies of the PDF for readers to download and you will need to make the menu items different.
+
+## Sharing
+On the right of the toolbar are buttons to share the link on social network websites such as Twitter, Facebook, and Linkedin. 
+* Use the `sharing` option to decide which buttons to enable. 
+* To get rid of these buttons entirely, use `sharing: null (or no)`.
+
+## Information
+The Information (‘i’) Button lists keyboard shortcuts available to navigate the document. 
+* This button can be hidden by setting `info: false`.

@@ -1,0 +1,96 @@
+FreeAPS2.txt
+
+https://slack-files.com/T03JANYSWD9-F03J8424S8M-e4e1404229
+
+Nightscout:
+
+    - Enter URL
+
+    - Connect
+
+    - Enable: Allow Uploads
+
+CGM:
+
+    - Type: G6
+
+    - Transmitter ID: 
+
+Apple Health:
+
+    - Enable
+
+Notification:
+
+    - Your choice, I have all turned off and just reduced High to 10
+
+Preferences:
+
+    - Check for these values:
+
+        - Max IOB - raise to 10
+
+        - Max SMB Basal Minutes - leave at default 30
+
+        - Max UAM Basal Minutes - leave at default 30
+
+    - Enable:
+
+        - Enable Dynamic CR
+
+        - Enable *all* "Enable SMB ..." options
+
+        - Enable UAM
+
+        - Resistance Lowers Target
+
+        - High TempTarget Raises Sensitivity
+
+        - Low TempTarget Raises Sensititivity
+
+    - Change Value for:
+
+        - Max Delta-BG Threshold SMB -> 0.3
+
+        - SMB Interval -> 1
+
+        - Bolus Increment to 0.05 *only if* using Omnipod
+
+        - Recommended Insulin Fraction -> 1
+
+    
+
+Skip:
+
+    - Pump Settings ( leave defaults )
+
+Basal Profile:
+
+    - Copy this from old Loop
+
+Insulin Sensitivities:
+
+    - Use Autosens value from old Loop
+
+Carb Ratios:
+
+    - Use Autotune calculated value from old Loop
+
+Target Ranges:
+
+    - Set to what you are comfortable with.
+
+    - Lower range is the one that matters.
+
+    - Mine is set to 5.5 - 5.5, 24/7, for example.
+
+Autotune:
+
+    - Enable
+
+Add Pump
+
+    - To add pump on new FAX, at this step you need to go into old pump and Disable OrangeLink/RileyLink first.
+
+Enable Closed Loop
+

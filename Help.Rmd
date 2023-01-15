@@ -1,0 +1,41 @@
+# How To Use This Guide
+
+## The Sidebar
+The Sidebar column on the left side is the primary way of navigating through the documents. 
+
+Clicking on any **Topic** will open it in the **View Pane** on the right (this Pane), as well as revealing any additional **Sub-Topics** in the Sidebar.
+
+## The Toolbar
+The pale grey icons at the top of the right-hand pane are the **Toolbar buttons**. They are fixed at the top of the page and are always available as you scroll. Starting at the top left, they are:
+
+### Show/Hide
+**The first button on the toolbar** can toggle the visibility of the _Sidebar_. You can also tap the `S` key on your keyboard to do the same thing. If you close the _Sidebar_, it will remain closed the next time you open the book.
+
+### Search
+**The second button on the toolbar** is the _Search button_, keyboard shortcut `F` (Find). 
+
+* Click the button to see a *Search box*. As you type in the box, you will see only sections that match the search keyword. 
+* Use the `Arrow Keys [Up/Down]` to highlight the previous/next match in the search results. 
+* Click the `Search Button` again (or hit F outside the `Search Box`). The search keyword will be emptied and the _Search box_ will be hidden.
+
+### Theme settings
+**The third button on the toolbar** is for Font/Theme settings. You can:
+
+* Change the `font size` (bigger/smaller), the `font family` (serif/sans serif), and the `theme` (White, Sepia, or Night). 
+
+### Downloads
+**The Download icon button** lets you download files of available types.
+
+* Downloadable file types (PDF, EBOOK) are displayed in a drop-down menu.
+  * Click the type of file you want.
+  * If more than one file of that type is available, they will be shown.
+    * Click the specific file or
+    * `[ALT/OPTION + CLICK]` to select more than one.
+
+### Sharing
+**On the right end of the toolbar** are buttons to share the link on social media sites such as Twitter, Facebook, and Linkedin.
+
+### Information
+**The Information Button (i)** lists keyboard shortcuts available to navigate the document. 
+
+

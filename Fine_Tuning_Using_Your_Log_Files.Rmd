@@ -1,0 +1,133 @@
+# Fine-Tuning Using Your Log Files
+
+## Copying Your Log Files to Your Mac
+You must first create and copy *FreeAPS-ng* log files from your iPhone to your Mac computer.
+
+- Tap *Share logs* at the bottom of *Settings* in iAPS
+
+This will create two log files, `log.txt` and `log_prev.txt`, and open a screen allowing you to transfer them by a variety of methods.
+
+- Save these files on your Mac in a *Folder* of your choice
+- Leave the *Folder window* open on your *Desktop*
+
+## Setting UAMSMB/SMB Limitations
+
+### Safety Limiters
+The following *Settings* act as "safety limiters":
+
+```
+Max UAMSMB Basal Minutes
+Max SMB Basal Minutes
+Autosens Max
+Autosens Min
+```
+
+**They do they not affect calculations** except by putting up fences. 
+
+***The primary focus on a new setup** is to have initial *Settings* so that the system is immediately able to function adequately using its default calculations.
+
+But if your *Basal Minutes* is set to `30` and your *Basal Rate* is `.1`, and the app wants to give you an SMB of `2U`, the *Basal Minutes* setting will limit it to `.5U` at a time, and your blood sugar will be high forever.
+
+So you will want to increase Basal Minutes to a value that allows the algorithm to do its job. The ideal is to create *Settings* that allow 95% of any *UAMSMB/SMB calculation* made by iAPS to influence insulin delivery. For this we need to ensure that:
+
+```
+SMB is not limited by maxUAMSMBBasalMinutes
+SMB is not limited by maxSMBBasalMinutes
+Dynamic ISF limited by autosens_max setting: 1.3 (1.3)
+```
+To understand SMB and its limitations factors, you can read:  
+[Understanding Super Micro Bolus (SMB)](https://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/oref1.html#understanding-super-micro-bolus-smb) in the OpenAPS documentation.
+
+### Open Terminal on Your Mac
+
+The *Terminal* application is in *Applications > Utilities > Terminal*
+
+#### **SHORTCUT to open Terminal** 
+* Click on the *Desktop* in *Finder*
+* Hold the [COMMAND] key then tap the [SPACEBAR]
+* Start typing *terminal* when the *Spotlight Search bar* opens
+* Press [RETURN/ENTER] to open  the *Terminal* application
+
+#### Change focus to the Log File Directory
+* Type ```cd [SPACE]``` in Terminal
+* Switch to *Finder*
+* Drag the small *Folder icon* where you saved the log files, into the *Terminal* window
+  * `path/to/the/log/files/folder` will appear next to `cd`
+* Press [ENTER/RETURN]. This will change *Terminal* to the log file directory. 
+
+You can type `ls` then tap [RETURN/ENTER] to list the log files.  
+The following commands will now work correctly.
+
+### Find and Compare The Ratio of SMB-Limited Lines
+
+**First, find find the total number of lines from the log pertinent to each.** 
+
+Copy and paste the first line of each command (below), after the `$` prompt. The first line is the command, the second the returned result:
+
+```
+grep maxUAMSMBBasalMinutes log.txt | grep limited | wc -l
+     114
+```
+
+**Then find the number of lines that are SMB-limited:**
+
+```
+grep maxUAMSMBBasalMinutes log.txt | grep "SMB limited" | wc -l
+      57
+```
+
+**Compare the two results.** If the number of limited lines is more than 5% (in the above examples it obviously is), you need to adjust ```maxUAMSMBBasalMinutes```, guided by these log reports.
+
+**Sort the result by calculated units** (the last value on the line):
+
+```
+grep maxUAMSMBBasalMinutes log.txt | grep "SMB limited"  | sort -n +20
+```
+
+**Scroll through the search results** to see how much the algorithm is limiting insulin delivery. The overall idea is to "ignore" the extreme SMBs.
+
+In the log file, you will see lines similar to:
+
+```
+DEV: JavaScript log: SMB is not limited by MaxUAMSMBBasalMinutes. ( insulinReq: 0.53U )
+DEV: JavaScript log: SMB limited by maxUAMSMBBasalMinutes [ 60m ]: 1.5U ( 6.28U )
+```
+
+There will be entries for both *maxUAMSMBBasalMinutes* and *maxSMBBasalMinutes*
+
+Optimally, you want to have more "not limited" lines then limited, with limited lines being less then 5% of all of the lines. If they are less than 5% of all lines, you don't need to change your settings.
+
+To adjust *maxUAMSMBBasalMinutes* to reduce the percentage of lines that are limited, look for the line that represents about the mid-way of limited values.  For example, if you have something like:
+
+```
+DEV: JavaScript log: SMB limited by maxUAMSMBBasalMinutes [ 60m ]: 1.5U ( 6.28U )
+DEV: JavaScript log: SMB limited by maxUAMSMBBasalMinutes [ 60m ]: 1.5U ( 5.72U )
+DEV: JavaScript log: SMB limited by maxUAMSMBBasalMinutes [ 60m ]: 1.5U ( 6.1U )
+```
+
+Use the entry with 6.1U as your adjustment point, with the formula:
+
+```
+   60m * ( 6.1 / 1.5 ) = 240
+```
+
+And use the rounded results for your new value in *maxUAMSMBBasalMinutes*. Do the maths and up your UAMSMB basal minutes by that amount. For example: the algorithm bolused 1U insulin when it says it really wanted to bolus 3U, so increase **UAMBasalMinutes** by 3x in *Settings*.
+
+If you need to adjust, there are going to be more lines then the above to work with, but the value in parenthesis is what the system has calculated you require in the way of insulin, and the value outside is the limit BASED ON `BasalMinutes`. The 1.5U will vary depending on time of day, as its determined by your Basal Rate at the time of calculation.
+
+When you make the change, give it 24 hours before checking and adjusting again.
+
+### An Easier Way for the Rest of Us
+Heres a much easier way for non-technical people:
+* Email log files to yourself
+* Open `log_prev.txt`
+* Press `[CONTROL/COMMAND] + F` to perform a search
+* Enter e.g. *SMB is limited by maxUAMSMBBasalMinutes* into the *Search field*.
+* Press [RETURN/ENTER]
+
+Search for either is limited or is not limited to get the numbers for both. If the ```[limited]/[is not limited] x 100``` is less than 5 (5%), then dont change anything.
+
+### Checking The Results
+To check this (except the first day or so), run the above commands on the `log_prev.txt` file, which reports the previous 24-hour period. Leave it run for a full day before rechecking.
+
+If everything else is set up correctly for you, these SMB maximums wont be needed in the future. But now you can know for sure that they are based on the results returned in your log files.

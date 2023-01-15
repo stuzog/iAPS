@@ -1,0 +1,18 @@
+The following values are "safety limiters":
+Max UAMSMB Basal Minutes
+Max SMB Basal Minutes
+Autosens Max
+Autosens Min
+do they not affect the calculations except by putting fences up ... our primary focus on a new setup is to get it so that the system is able to better use its default calculations ... if your Basal Minutes is set to 30m and your basal rate is .1, and SMB wants to give you 2U, the Basal MInutes will limit it to .05U at a time ... you'll be high forever.   So we want to increase Basal Minutes to a value that allows the algorithm to do its job.
+Once you have those dialed in, then there is other stuff that can be played with, with the big one being:
+AdjustmentFactor
+That one determines the aggressiveness of the DynamicISF algorithm ... that one is a multiplier, and does affect the calculations, and this tends to be "person specific"
+I have mine set at 0.856 ... default is 1 ... I probably need to adjust mine a bit, but, there is even an "easy formula" for getting a ball park number to start with:
+adjustmentFactor = 277700   /  TDD * BG_target * ( 18 * 18 ) * staticISF
+TDD: Under Settings -> Debug Options -> TDD Averages
+if you look in there there is a number for Weighted Average ( mine is 78.75 )
+BG_Target: your choice here, mine is 5.5
+StaticISF: I use Autotune value found under Settings -> Insulin Sensitivities ( mine is 2.31 )
+It will end up looking like:
+277700 / ( 2.31 * 78.75 * 5.5 * ( 18 * 18 )) = 0.856
+that is my adjustmentfactor ... it isn't 100%, but it gets me into the ballpark range ... and you can tweak up / down from there ..

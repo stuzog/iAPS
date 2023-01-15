@@ -1,0 +1,59 @@
+# Add Pump
+
+## If You Are Upgrading From FreeAPS X
+**Only one pump at a time** can be controlled by *FreeAPS-X* or *iAPS*, so to add a pump to a new setup you must first *Disable OrangeLink/RileyLink* in the old pump setup.
+ 
+## If You Are Upgrading From Loop to iAPS
+**ATTENTION: You must FIRST disconnect RileyLink/OrangeLink/EmaLink from *Loop.app* BEFORE trying to connect a new Omnipod to *iAPS*.**
+
+At a scheduled or unscheduled Omnipod change:
+
+***While in Loop***
+
+* Tap *Replace Pod* BEFORE disconnecting your RileyLink
+	- *Settings > OmniPod* screen
+	  - (Also available from *Pump/Pod icon* in top Header in both Loop and iAPS)
+* Turn RileyLink switch OFF
+	- RileyLink *Green LED* will turn off
+* Close the Loop/iAPS App
+	- *Swipe Up* Loop/iAPS icon on *Home Screen* 
+
+***Back in iAPS***
+
+* Select *Omnipod* in *Settings > Pump*
+	- RileyLink should be recognised immediately
+	- *Turn RileyLink ON*
+* Fill a new pump or OmniPod, attach to body
+	- *Start New Pod*
+
+## To Change From Eros To Dash Pods
+
+Insulet currently offers has two types of Omnipods.  
+Both work with iAPS:
+
+* Omnipod Eros (needs RileyLink)
+* Omnipod Dash (Direct to iPhone vie Bluetooth)
+
+BC Diabetes is currently transitioning patients from Eros to Dash. 
+
+You must make this transition when you initiate a Pod change:
+
+* After you disconnect the old Pod, go into *Settings -> Pump -> Omnipod*
+* At the very bottom there a *Switch Pump System* link
+  * This will disable future use of Eros Pods
+* In *Settings -> Pump* there will be a new option for *Omnipod Dash*
+  * (As well as just Omnipod)
+* Choose Dash and it will ask you two questions:
+  * Warning time before expiration 
+  * Warning when Units fall below
+
+Answer these aand then you are confirmed. The rest is as before:
+
+* Fill the Pod
+* Click to pair Pod
+* Click to insert Cannula
+
+## Close Loop
+* **Enable**
+
+
