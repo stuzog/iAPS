@@ -29,6 +29,7 @@ dynamic-isf
 to-switch-to-the-new-dynisf
 adjustment-factor
 ballpark-formula
+autosens
 fine-tuning-using-your-log-files
 copying-your-log-files-to-your-mac
 setting-uamsmbsmb-limitations
@@ -89,4 +90,3 @@ individual-patient-data-ipd-sharing-statement
 governing-law
 jurisdiction
 consent
-basal-profile-1

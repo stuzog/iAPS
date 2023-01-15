@@ -5,19 +5,19 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>4 Dynamic ISF | iAPS User Guide</title>
-  <meta name="description" content="Settings and Steps for installing, setting up, and running iAPS iOS app, based on FreeAPS X, being developed by BC Diabetes in Vancouver, BC Canada" />
+  <meta name="description" content="Settings and Steps for installing, setting up, and adjusting the iAPS iOS app, based on FreeAPS X and being used by BC Diabetes in Vancouver, BC Canada" />
   <meta name="generator" content="bookdown 0.31 and GitBook 2.6.7" />
 
   <meta property="og:title" content="4 Dynamic ISF | iAPS User Guide" />
   <meta property="og:type" content="book" />
   
-  <meta property="og:description" content="Settings and Steps for installing, setting up, and running iAPS iOS app, based on FreeAPS X, being developed by BC Diabetes in Vancouver, BC Canada" />
+  <meta property="og:description" content="Settings and Steps for installing, setting up, and adjusting the iAPS iOS app, based on FreeAPS X and being used by BC Diabetes in Vancouver, BC Canada" />
   <meta name="github-repo" content="stuzog/iAPS" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="4 Dynamic ISF | iAPS User Guide" />
   
-  <meta name="twitter:description" content="Settings and Steps for installing, setting up, and running iAPS iOS app, based on FreeAPS X, being developed by BC Diabetes in Vancouver, BC Canada" />
+  <meta name="twitter:description" content="Settings and Steps for installing, setting up, and adjusting the iAPS iOS app, based on FreeAPS X and being used by BC Diabetes in Vancouver, BC Canada" />
   
 
 <meta name="author" content="By Stuart Hertzog and Marc Fornier" />
@@ -110,6 +110,7 @@
 <ul>
 <li class="chapter" data-level="4.2.1" data-path="dynamic-isf.html"><a href="dynamic-isf.html#ballpark-formula"><i class="fa fa-check"></i><b>4.2.1</b> Ballpark Formula</a></li>
 </ul></li>
+<li class="chapter" data-level="4.3" data-path="dynamic-isf.html"><a href="dynamic-isf.html#autosens"><i class="fa fa-check"></i><b>4.3</b> AutoSens</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="fine-tuning-using-your-log-files.html"><a href="fine-tuning-using-your-log-files.html"><i class="fa fa-check"></i><b>5</b> Fine-Tuning Using Your Log Files</a>
 <ul>
@@ -233,13 +234,6 @@
 <h2><span class="header-section-number">4.2</span> Adjustment Factor<a href="dynamic-isf.html#adjustment-factor" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><em>Settings –&gt; Preferences –&gt; Dynamic Settings –&gt; Adjustment Factor</em></p>
 <p><strong>Adjustment Factor is a multiplier that impacts insulin delivery</strong>. It determines the aggressiveness of the <em>DynamicISF</em> algorithm, and it tends to be person-specific.</p>
-<p><strong>Basically, it’s determining how sensitive/resistant you are compared to your baseline</strong>. An <code>AutoSens</code> value of <code>1</code> means that your sensitivity is what the system expects.</p>
-<ul>
-<li><strong>More than <code>1</code></strong> means that you’re needing <strong>more insulin</strong> than your baseline</li>
-<li><strong>Less than <code>1</code></strong> means you are currently <strong>more sensitive</strong> and need less insulin</li>
-</ul>
-<p><strong>The <em>default</em> is set at <code>1</code></strong>, which means that there is no change from those <em>Settings</em> values that affect insulin delivery.</p>
-<p>A full explanation of AutoSens can found in the <a href="https://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/autosens.html">OpenAPS documentation</a>.</p>
 <div id="ballpark-formula" class="section level3 hasAnchor" number="4.2.1">
 <h3><span class="header-section-number">4.2.1</span> Ballpark Formula<a href="dynamic-isf.html#ballpark-formula" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>There is a formula for deriving an approximate number to begin with:</p>
@@ -262,8 +256,18 @@
 <p>Using some example numbers, the <em>AdjustmentFactor</em> will be:</p>
 <pre><code>277700 / ( 2.31 * 78.75 * 5.5 * ( 18 * 18 ) * 2.31) = 0.856</code></pre>
 <p>It isn’t 100% accurate, but it gets you into the ballpark range, and you can tweak up or down from there.</p>
-
 </div>
+</div>
+<div id="autosens" class="section level2 hasAnchor" number="4.3">
+<h2><span class="header-section-number">4.3</span> AutoSens<a href="dynamic-isf.html#autosens" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Basically, <em>AutoSens</em> determines how sensitive/resistant you are compared to the system baseline</strong>. It’s just a knob for turning up or down the aggressiveness/slope of ISF curve. An <code>AutoSens</code> value of <code>1</code> means that your sensitivity is what the system expects.</p>
+<ul>
+<li><strong>More than <code>1</code></strong> means that you’re needing <strong>more insulin</strong> than the baseline</li>
+<li><strong>Less than <code>1</code></strong> means you are currently <strong>more sensitive</strong> and need less insulin</li>
+</ul>
+<p><strong>The <em>default</em> is set at <code>1</code></strong>, which means that there is no change from those <em>Settings</em> values that affect insulin delivery.</p>
+<p>A full explanation of AutoSens can found in the <a href="https://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/autosens.html">OpenAPS documentation</a>.</p>
+
 </div>
 </div>
             </section>
