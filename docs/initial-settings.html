@@ -92,9 +92,8 @@
 </ul></li>
 <li class="chapter" data-level="2.3" data-path="initial-settings.html"><a href="initial-settings.html#target-ranges"><i class="fa fa-check"></i><b>2.3</b> Target Ranges</a></li>
 <li class="chapter" data-level="2.4" data-path="initial-settings.html"><a href="initial-settings.html#autotune"><i class="fa fa-check"></i><b>2.4</b> Autotune</a></li>
-<li class="chapter" data-level="2.5" data-path="initial-settings.html"><a href="initial-settings.html#connect-to-apple-health"><i class="fa fa-check"></i><b>2.5</b> Connect To Apple Health</a></li>
-<li class="chapter" data-level="2.6" data-path="initial-settings.html"><a href="initial-settings.html#individual-settings"><i class="fa fa-check"></i><b>2.6</b> Individual Settings</a></li>
-<li class="chapter" data-level="2.7" data-path="initial-settings.html"><a href="initial-settings.html#bcd-default-settings"><i class="fa fa-check"></i><b>2.7</b> BCD Default Settings</a></li>
+<li class="chapter" data-level="2.5" data-path="initial-settings.html"><a href="initial-settings.html#individual-settings"><i class="fa fa-check"></i><b>2.5</b> Individual Settings</a></li>
+<li class="chapter" data-level="2.6" data-path="initial-settings.html"><a href="initial-settings.html#bcd-default-settings"><i class="fa fa-check"></i><b>2.6</b> BCD Default Settings</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="add-pump.html"><a href="add-pump.html"><i class="fa fa-check"></i><b>3</b> Add Pump</a>
 <ul>
@@ -105,7 +104,7 @@
 </ul></li>
 <li class="chapter" data-level="4" data-path="dynamic-isf.html"><a href="dynamic-isf.html"><i class="fa fa-check"></i><b>4</b> Dynamic ISF</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="dynamic-isf.html"><a href="dynamic-isf.html#to-switch-to-the-new-dynisf"><i class="fa fa-check"></i><b>4.1</b> To switch to the new <em>dynISF</em></a></li>
+<li class="chapter" data-level="4.1" data-path="dynamic-isf.html"><a href="dynamic-isf.html#switch-on-dynisf"><i class="fa fa-check"></i><b>4.1</b> Switch on <em>dynISF</em></a></li>
 <li class="chapter" data-level="4.2" data-path="dynamic-isf.html"><a href="dynamic-isf.html#adjustment-factor"><i class="fa fa-check"></i><b>4.2</b> Adjustment Factor</a>
 <ul>
 <li class="chapter" data-level="4.2.1" data-path="dynamic-isf.html"><a href="dynamic-isf.html#ballpark-formula"><i class="fa fa-check"></i><b>4.2.1</b> Ballpark Formula</a></li>
@@ -251,7 +250,7 @@ If not mentioned, leave the existing <em>Default Settings</em>.</p>
 <div id="freeaps-x" class="section level4 hasAnchor" number="2.2.1.1">
 <h4><span class="header-section-number">2.2.1.1</span> FREEAPS X<a href="initial-settings.html#freeaps-x" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <ul>
-<li><em>Recommended Insulin Fraction</em> <strong>&gt; 2</strong></li>
+<li><em>Recommended Insulin Fraction</em> <strong>&lt; = 2</strong></li>
 </ul>
 </div>
 <div id="openaps-main-settings" class="section level4 hasAnchor" number="2.2.1.2">
@@ -335,18 +334,8 @@ If not mentioned, leave the existing <em>Default Settings</em>.</p>
 <li><strong>Enable</strong></li>
 </ul>
 </div>
-<div id="connect-to-apple-health" class="section level2 hasAnchor" number="2.5">
-<h2><span class="header-section-number">2.5</span> Connect To Apple Health<a href="initial-settings.html#connect-to-apple-health" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<ul>
-<li><strong>Enable</strong></li>
-<li>You must also <strong>Enable Read</strong> and <strong>Write</strong> to <strong>FreeAPS X NextGen</strong> in <strong>Apple Health</strong>:
-<ul>
-<li><em>iPhone Settings –&gt; Health –&gt; FreeAPS –&gt; Blood Glucose</em></li>
-</ul></li>
-</ul>
-</div>
-<div id="individual-settings" class="section level2 hasAnchor" number="2.6">
-<h2><span class="header-section-number">2.6</span> Individual Settings<a href="initial-settings.html#individual-settings" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="individual-settings" class="section level2 hasAnchor" number="2.5">
+<h2><span class="header-section-number">2.5</span> Individual Settings<a href="initial-settings.html#individual-settings" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The following settings are unique to each individual:</p>
 <ul>
 <li>Max IOB</li>
@@ -358,8 +347,8 @@ If not mentioned, leave the existing <em>Default Settings</em>.</p>
 </ul>
 <p><strong>Initial Settings</strong> described above are common to everyone.</p>
 </div>
-<div id="bcd-default-settings" class="section level2 hasAnchor" number="2.7">
-<h2><span class="header-section-number">2.7</span> BCD Default Settings<a href="initial-settings.html#bcd-default-settings" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="bcd-default-settings" class="section level2 hasAnchor" number="2.6">
+<h2><span class="header-section-number">2.6</span> BCD Default Settings<a href="initial-settings.html#bcd-default-settings" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>A up-to-date listing of <strong>BCDiabetes default iAPS settings</strong> can be viewed at:</p>
 <p><a href="https://sites.google.com/bcdiabetes.ca/iaps-settings/home?pli=1" class="uri">https://sites.google.com/bcdiabetes.ca/iaps-settings/home?pli=1</a></p>
 <p>This listing is useful if you need to re-enter the default settings after an unexpected update, or compare your settings to current BCD defaults.</p>
