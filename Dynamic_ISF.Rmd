@@ -2,17 +2,16 @@
 
 The idea behind *dynISF* is that ISF isn't a fixed number but changes as BG changes, e.g. if your BG climbs higher, your **Insulin Sensitivity** drops and you need more insulin.
 
-iAPS is using this, but unfortunately, there are two different versions of *dynISF*: the one iAPS using now, and a newer one that is going to be the new default.
-
-AAPS (Android's version of FAX) has apparently already replaced the original with the new; while FAX is debating getting rid of the original, or leaving both in with a switch between the two. 
-
-## To switch to the new *dynISF*
-
-Switching to the new formula is simple:
+## Switch on *dynISF*
 
 *Settings -> Preferences -> Use Logarithmic Formula* **Enable**
 
-You will need to tweak your *AdjustmentFactor*, as the curve changes with the new formula, so the Adjustment Factor does change as well.
+You may need to tweak your *AdjustmentFactor*, as the curve changes with the new formula, so the Adjustment Factor does change as well.
+
+## Adjustment Factor
+*Settings --> Preferences --> Dynamic Settings --> Adjustment Factor*
+
+**Adjustment Factor is a multiplier that impacts insulin delivery**. It’s just a way of turning up or down the aggressiveness/slope of ISF curve. It determines the aggressiveness of the *DynamicISF* algorithm, and it tends to be person-specific.
 
 To get to a ballpark AF with Log enabled, just divide by 1.666 what you have now and plug that in. 
 
@@ -21,28 +20,14 @@ To get to a ballpark AF with Log enabled, just divide by 1.666 what you have now
 The actual formula is:
 
 ```
-F = 1800 / profile.sens * tdd_averages.average_7days * LN( profile.min_bg / ( 120 - pumpprofile.insulinPeakTime + 1 )
+F = 1800 / profile.sens * tdd_averages.average_14days * LN( profile.min_bg / ( 120 - pumpprofile.insulinPeakTime + 1 )
 ```
 
 Each of the above variables points to the Debug Options screen + variable within it that you would need to use, but again, this will get you only to ballpark: you will want to monitor and tweak AF accordingly. 
 
 If you find it's not aggressive enough, increase AF, if it's too aggressive, decrease AF.
 
-NOTE: You can use a different value for *tdd_averages.average_7days* if you want. This smooths out the good and bad days that we all have. The new code actually adds a 14-day value.
-
-## Adjustment Factor
-*Settings --> Preferences --> Dynamic Settings --> Adjustment Factor*
-
-**Adjustment Factor is a multiplier that impacts insulin delivery**. It determines the aggressiveness of the *DynamicISF* algorithm, and it tends to be person-specific.
-
-**Basically, it's determining how sensitive/resistant you are compared to your baseline**.  An `AutoSens` value of `1` means that your sensitivity is what the system expects.
-
-* **More than `1`** means that you're needing **more insulin** than your baseline
-* **Less than `1`** means you are currently **more sensitive** and need less insulin
-
-**The *default* is set at `1`**, which means that there is no change from those *Settings* values that affect insulin delivery.
-
-A full explanation of AutoSens can found in the [OpenAPS documentation](https://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/autosens.html).
+NOTE: You can use a different value for *tdd_averages.average_14days* if you want. This smooths out the good and bad days that we all have.
 
 ### Ballpark Formula
 
@@ -52,7 +37,7 @@ There is a formula for deriving an approximate number to begin with:
 adjustmentFactor = 277700/TDD * BG_target * (18 * 18) * StaticISF
 ```
 
-* **Total Daily Delivery (TDD)** can be found by tapping the green circle at the top of the main iAPS page. There are three numbers in the purple area: TDD, Weighted Average (Wavg), and 7day. Use the TDD value. 
+* **Total Daily Delivery (TDD)** can be found by tapping the green circle at the top of the main iAPS page. There are three numbers in the purple area: TDD, Weighted Average (Wavg), and 14day. Use the TDD value. 
 
 * *BG_Target* is whatever you have chosen for your target, e.g. 5.5.
 
@@ -71,4 +56,15 @@ Using some example numbers, the *AdjustmentFactor* will be:
 ```
 
 It isn't 100% accurate, but it gets you into the ballpark range, and you can tweak up or down from there.
+
+## AutoSens
+
+**Basically, *AutoSens* determines how sensitive/resistant you are compared to the system baseline**. An `AutoSens` value of `1` means that your sensitivity is what the system expects.
+
+* **More than `1`** means that you're needing **more insulin** than the baseline
+* **Less than `1`** means you are currently **more sensitive** and need less insulin
+
+**The *default* is set at `1`**, which means that there is no change from those *Settings* values that affect insulin delivery.
+
+A full explanation of AutoSens can found in the [OpenAPS documentation](https://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/autosens.html).
 

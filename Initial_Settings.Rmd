@@ -25,7 +25,7 @@ If not mentioned, leave the existing _Default Settings_.
 ### Preferences
 
 #### FREEAPS X
-- *Recommended Insulin Fraction* **> 2**
+- *Recommended Insulin Fraction* **< = 2**
 
 #### OPENAPS MAIN Settings
 - *Insulin Curve* - Set to the **type of insulin** you are using
@@ -72,11 +72,6 @@ If not mentioned, leave the existing _Default Settings_.
 
 ## Autotune 
 - **Enable**
-
-## Connect To Apple Health
-- **Enable**
-- You must also **Enable Read** and **Write** to **FreeAPS X NextGen** in **Apple Health**:
-  - _iPhone Settings --> Health --> FreeAPS --> Blood Glucose_
 
 ## Individual Settings
 
