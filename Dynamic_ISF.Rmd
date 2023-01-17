@@ -57,12 +57,27 @@ It isn't 100% accurate, but it gets you into the ballpark range, and you can twe
 
 ## AutoSens
 
-**Basically, *AutoSens* determines how sensitive/resistant you are compared to the system baseline**. An `AutoSens` value of `1` means that your sensitivity is what the system expects.
+**Basically, *AutoSens* determines how sensitive or resistant you are to insulin**. Its value is dynamically calculated by the system.
 
-* **More than `1`** means that you're needing **more insulin** than the baseline
+**If *Autosens* is calculated to be `1`**, it means that there is no change from those *Settings* that affect insulin delivery.
+
+* **More than `1`** means that you need **more insulin** than usual
 * **Less than `1`** means you are currently **more sensitive** and need less insulin
 
-**The *default* is set at `1`**, which means that there is no change from those *Settings* values that affect insulin delivery.
+### Autosens Default Settings
 
-A full explanation of AutoSens can found in the [OpenAPS documentation](https://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/autosens.html).
+**The default *Autosens* settings** are *Autosens Max: 1.2* and *Autosens Min: 0.8*. The only way to always have *Autosens* set to `1` (disabling both *Autosens* and *Dynamic ISF*) is to have both *Autosens Max* and *Autosens Min* set to `1`.
+
+***Oref0* can of course compute your *Autosens* to `1`** (when not using *Dynamic ISF*). This happens on two occasions:
+
+1. When there isn’t enough data for *Autosens*, and
+2. When the *Autosens functions* don’t compute a change in insulin sensitivity.
+
+### Autosens Can Be Disabled
+
+***Autosens* is disabled** (actually overridden) when using *Dynamic ISF*, except for the exception when you’re using a high *Temp target* together with one of the two exercise settings, because at these occasions *Dynamic ISF* gets temporarily disabled.
+
+***Dynamic ISF* borrows the *Autosens Max.Min* settings** for limiting the dynamic ratio. So even it it’s still called *Autosen Max/Min*, it isn’t an *Autosens setting* when you have *Dynamic ISF* toggled on.
+
+A full explanation of *AutoSens* can found in the [OpenAPS documentation](https://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/autosens.html).
 

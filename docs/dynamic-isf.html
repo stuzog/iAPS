@@ -109,7 +109,11 @@
 <li class="chapter" data-level="4.1.1" data-path="dynamic-isf.html"><a href="dynamic-isf.html#switch-on-sigmoid-function"><i class="fa fa-check"></i><b>4.1.1</b> Switch On <em>Sigmoid Function</em></a></li>
 <li class="chapter" data-level="4.1.2" data-path="dynamic-isf.html"><a href="dynamic-isf.html#ballpark-formula"><i class="fa fa-check"></i><b>4.1.2</b> Ballpark Formula</a></li>
 </ul></li>
-<li class="chapter" data-level="4.2" data-path="dynamic-isf.html"><a href="dynamic-isf.html#autosens"><i class="fa fa-check"></i><b>4.2</b> AutoSens</a></li>
+<li class="chapter" data-level="4.2" data-path="dynamic-isf.html"><a href="dynamic-isf.html#autosens"><i class="fa fa-check"></i><b>4.2</b> AutoSens</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="dynamic-isf.html"><a href="dynamic-isf.html#autosens-default-settings"><i class="fa fa-check"></i><b>4.2.1</b> Autosens Default Settings</a></li>
+<li class="chapter" data-level="4.2.2" data-path="dynamic-isf.html"><a href="dynamic-isf.html#autosens-can-be-disabled"><i class="fa fa-check"></i><b>4.2.2</b> Autosens Can Be Disabled</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="fine-tuning-using-your-log-files.html"><a href="fine-tuning-using-your-log-files.html"><i class="fa fa-check"></i><b>5</b> Fine-Tuning Using Your Log Files</a>
 <ul>
@@ -255,14 +259,28 @@
 </div>
 <div id="autosens" class="section level2 hasAnchor" number="4.2">
 <h2><span class="header-section-number">4.2</span> AutoSens<a href="dynamic-isf.html#autosens" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p><strong>Basically, <em>AutoSens</em> determines how sensitive/resistant you are compared to the system baseline</strong>. An <code>AutoSens</code> value of <code>1</code> means that your sensitivity is what the system expects.</p>
+<p><strong>Basically, <em>AutoSens</em> determines how sensitive or resistant you are to insulin</strong>. Its value is dynamically calculated by the system.</p>
+<p><strong>If <em>Autosens</em> is calculated to be <code>1</code></strong>, it means that there is no change from those <em>Settings</em> that affect insulin delivery.</p>
 <ul>
-<li><strong>More than <code>1</code></strong> means that you’re needing <strong>more insulin</strong> than the baseline</li>
+<li><strong>More than <code>1</code></strong> means that you need <strong>more insulin</strong> than usual</li>
 <li><strong>Less than <code>1</code></strong> means you are currently <strong>more sensitive</strong> and need less insulin</li>
 </ul>
-<p><strong>The <em>default</em> is set at <code>1</code></strong>, which means that there is no change from those <em>Settings</em> values that affect insulin delivery.</p>
-<p>A full explanation of AutoSens can found in the <a href="https://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/autosens.html">OpenAPS documentation</a>.</p>
+<div id="autosens-default-settings" class="section level3 hasAnchor" number="4.2.1">
+<h3><span class="header-section-number">4.2.1</span> Autosens Default Settings<a href="dynamic-isf.html#autosens-default-settings" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>The default <em>Autosens</em> settings</strong> are <em>Autosens Max: 1.2</em> and <em>Autosens Min: 0.8</em>. The only way to always have <em>Autosens</em> set to <code>1</code> (disabling both <em>Autosens</em> and <em>Dynamic ISF</em>) is to have both <em>Autosens Max</em> and <em>Autosens Min</em> set to <code>1</code>.</p>
+<p><strong><em>Oref0</em> can of course compute your <em>Autosens</em> to <code>1</code></strong> (when not using <em>Dynamic ISF</em>). This happens on two occasions:</p>
+<ol style="list-style-type: decimal">
+<li>When there isn’t enough data for <em>Autosens</em>, and</li>
+<li>When the <em>Autosens functions</em> don’t compute a change in insulin sensitivity.</li>
+</ol>
+</div>
+<div id="autosens-can-be-disabled" class="section level3 hasAnchor" number="4.2.2">
+<h3><span class="header-section-number">4.2.2</span> Autosens Can Be Disabled<a href="dynamic-isf.html#autosens-can-be-disabled" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong><em>Autosens</em> is disabled</strong> (actually overridden) when using <em>Dynamic ISF</em>, except for the exception when you’re using a high <em>Temp target</em> together with one of the two exercise settings, because at these occasions <em>Dynamic ISF</em> gets temporarily disabled.</p>
+<p><strong><em>Dynamic ISF</em> borrows the <em>Autosens Max.Min</em> settings</strong> for limiting the dynamic ratio. So even it it’s still called <em>Autosen Max/Min</em>, it isn’t an <em>Autosens setting</em> when you have <em>Dynamic ISF</em> toggled on.</p>
+<p>A full explanation of <em>AutoSens</em> can found in the <a href="https://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/autosens.html">OpenAPS documentation</a>.</p>
 
+</div>
 </div>
 </div>
             </section>

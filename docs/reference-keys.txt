@@ -29,6 +29,8 @@ adjustment-factor
 switch-on-sigmoid-function
 ballpark-formula
 autosens
+autosens-default-settings
+autosens-can-be-disabled
 fine-tuning-using-your-log-files
 copying-your-log-files-to-your-mac
 setting-uamsmbsmb-limitations
