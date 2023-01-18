@@ -75,7 +75,7 @@ It isn't 100% accurate, but it gets you into the ballpark range, and you can twe
 
 ### Autosens Can Be Disabled
 
-***Autosens* is disabled** (actually overridden) when using *Dynamic ISF*, except for the exception when you’re using a high *Temp target* together with one of the two exercise settings, because at these occasions *Dynamic ISF* gets temporarily disabled.
+***Autosens* is disabled (actually overridden)** when using *Dynamic ISF*, except for the exception when you’re using a high *Temp target* together with one of the two exercise settings, because at these occasions *Dynamic ISF* gets temporarily disabled.
 
 ***Dynamic ISF* borrows the *Autosens Max.Min* settings** for limiting the dynamic ratio. So even it it’s still called *Autosen Max/Min*, it isn’t an *Autosens setting* when you have *Dynamic ISF* toggled on.
 
