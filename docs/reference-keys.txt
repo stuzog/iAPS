@@ -1,4 +1,4 @@
-important-stop-automatic-updates
+important-prevent-automatic-updates
 how-to-use-this-documentation
 initial-settings
 services

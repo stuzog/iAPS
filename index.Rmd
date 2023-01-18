@@ -1,7 +1,7 @@
 --- 
 title: "iAPS User Guide"
-author: "By Stuart Hertzog and Marc Fornier"
-date: "v.1.0.4 `r Sys.Date()`"
+author: "By Stuart Hertzog, Marc Fornier, and Jon Björn Mårtensson"
+date: "v.1.0.5 `r Sys.Date()`"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography:
@@ -10,10 +10,10 @@ bibliography:
 biblio-style: apalike
 link-citations: yes
 github-repo: "stuzog/iAPS"
-description: "Settings and Steps for installing, setting up, and adjusting the iAPS iOS app, based on FreeAPS X and being used by BC Diabetes in Vancouver, BC Canada"
+description: "Settings and Steps for installing, setting up, and adjusting the iAPS iOS app developed by Jon Björn Mårtensson from FreeAPS X, an artificial pancreas system for iOS based on OpenAPS, and being used by BC Diabetes in Vancouver, BC Canada"
 ---
 
-# IMPORTANT! Stop Automatic Updates
+# IMPORTANT! Prevent Automatic Updates
 
 If **TestFlight** on your iPhone is set to *Autoupdate* for any app, it will immediately replace your existing copy of that app when a new update is released.
 
