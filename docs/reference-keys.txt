@@ -1,5 +1,6 @@
 important-prevent-automatic-updates
 how-to-use-this-documentation
+bcd-default-settings
 initial-settings
 services
 nightscout
@@ -19,7 +20,6 @@ carb-ratios
 target-ranges
 autotune
 individual-settings
-bcd-default-settings
 add-pump
 if-you-are-upgrading-from-freeaps-x
 if-you-are-upgrading-from-loop-to-iaps
@@ -92,3 +92,5 @@ individual-patient-data-ipd-sharing-statement
 governing-law
 jurisdiction
 consent
+openaps-other-settings
+basal-profile-1

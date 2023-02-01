@@ -1,6 +1,6 @@
 book_filename: "iAPS User Guide"
 rmd_files:
-  html: ["index.Rmd", "Initial_Settings.Rmd", "Add_Pump.Rmd", "Dynamic_ISF.Rmd", "Fine_Tuning_Using_Your_Log_Files.Rmd", "Bolusing_For_Meals.Rmd", "Help.Rmd", "Appendix.Rmd", "BC_Diabetes_Looping_Agreement.Rmd"]
+  html: ["index.Rmd", "BCD_Default_Settings.Rmd", "Initial_Settings.Rmd", "Add_Pump.Rmd", "Dynamic_ISF.Rmd", "Fine_Tuning_Using_Your_Log_Files.Rmd", "Bolusing_For_Meals.Rmd", "Help.Rmd", "Appendix.Rmd", "BC_Diabetes_Looping_Agreement.Rmd"]
 language:
   ui:
     chapter_name: ""
