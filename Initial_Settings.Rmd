@@ -1,9 +1,6 @@
 # Initial Settings
 
-The following *Settings* are listed in order of appearance in the *iAPS* app.  
-If not mentioned, leave the existing _Default Settings_.
-
-- **Click** the _Cog Wheel_ (bottom right of the iAPS screen)
+The following *Settings* are listed in order of appearance in the *iAPS* app. Click the _Cog Wheel_ (bottom right of the iAPS main screen) to view/change your Settings.
 
 ## SERVICES
 
@@ -20,48 +17,105 @@ If not mentioned, leave the existing _Default Settings_.
 ### Notifications
 - Your choice, e.g. **All** turned **Off**, set **High ---> 10**
 
+
 ## CONFIGURATION
 
 ### Preferences
+Following are the _Default Settings_ that will get you started.
+
+Tapping on many of the listings in the app will bring up an explanation of what each setting means and its relevance.
 
 #### FREEAPS X
-- *Recommended Insulin Fraction* **< = 2**
+- *Glucose Units* - **mmol/L**
+- *Remote Control* - **FALSE**
+- *Recommended Insulin Fraction* - **2**
+- *Skip Bolus screen after carbs* - **FALSE**
+- *Display HR on Watch* - **FALSE**
+- *Display Statistics* - **TRUE**
 
-#### OPENAPS MAIN Settings
-- *Insulin Curve* - Set to the **type of insulin** you are using
-- *Max IOB* - **raise to 10**
+#### STATISTICS
+- *Low Glucose Limit (mmol/L)* - **4**
+- *High Glucose Limit (mmol/L)* - **10**
+- *Update every number of minutes:* - **30**
+- *Display SD instead of CV* - **FALSE**
+- *Display Loop Cycle statistics* - **FALSE**
+- *Override HbA1c unit* - **TRUE**
+
+#### OPENAPS MAIN SETTINGS
+- *Insulin curve* - **rapid-acting**
+- *Max IOB* - **10**
+- *Max COB* - **120**
+- *Max Daily Safety Multiplier* - **3**
+- *Current Basal Safety Multiplier* - **4**
+- *Autosens Max* - **1.2**
+- *Autosens Min* - **0.7**
 
 #### DYNAMIC SETTINGS
-- *Dynamic ISF* - **Enable**
-- *Dynamic CR* - **Enable**
-- *Adjust Basal* - **Enable**
+- *Enable Dynamic ISF* - **TRUE**
+- *Enable Dynamic CR* - **TRUE**
+- *Adjustment Factor* - **1**
+- *Use Sigmoid Function* - **FALSE**
+- *Weighted Average of TDD. Weight of past 24 hours:* - **0.65**
+- *Adjust basal* - **TRUE**
+- *Threshold Setting (mg/dl)* - **65**
 
 #### OPENAPS SMB SETTINGS
-- *Enable SMB ...* options - **Enable All**
-  - *Enable SMB Always*
-  - *Enable SMB with COB*
-  - *Enable SMB With Temptarget*
-  - *Enable SMB After Carbs*
-  - *Enable SMB With High BG*
-- *Enable UAM* - **Enable**
-- *Max Delta-BG Threshold SMB* **> 0.3**
-- *SMB Interval* **> 1**
-- *Bolus Increment* **> 0.05 *ONLY if using Omnipod***
+- *Enable SMB Always* - **TRUE**
+- *Max Delta-BG Threshold SMB* - **0.3**
+- *Enable SMB with COB* - **FALSE**
+- *Enable SMB With Temptarget* - **FALSE**
+- *Enable SMB After Carbs* - **FALSE**
+- *Allow SMB With High Temptarget* - **FALSE**
+- *Enable SMB With High BG* - **FALSE**
+- *... When Blood Glucose Is Over (mg/dl):* - **110**
+- *Enable UAM* - **TRUE**
+- *Max SMB Basal Minutes* - **30**
+- *Max UAM SMB Basal Minutes* - **30**
+- *SMB Delivery Ratio* - **0.5**
+- *SMB Interval* - **3**
+- *Bolus Increment* - **0.05**
 
 #### OPENAPS TARGETS SETTINGS
-- *High TempTarget Raises Sensitivity* - **Enable**
-- *Low TempTarget Raises Sensitivity* - **Enable**
-- *Sensitivity Raises Target* - **Enable**
-- *Resistance Lowers Target* - **Enable**
+- *High Temptarget Raises Sensitivity* - **FALSE**
+- *Low Temptarget Lowers Sensitivity* - **FALSE**
+- *Sensitivity Raises Target* - **FALSE**
+- *Resistance Lowers Target* - **FALSE**
+- *Advanced Target Adjustments* - **FALSE**
+- *Exercise Mode* - **FALSE**
+- *Half Basal Exercise Target* - **160**
+- *Wide BG Target Range* - **FALSE**
+- 
+#### OPENAPS OTHER SETTINGS
+- *Rewind Resets Autosens* - **FALSE**
+- *Use Custom Peak Time* - **FALSE**
+- *Insulin Peak Time* - **75**
+- *Skip Neutral Temps* - **FALSE**
+- *Unsuspend If No Temp* - **FALSE**
+- *Suspend Zeros IOB* - **FALSE**
+- *Bolus Snooze DIA Divisor* - **2**
+- *Min 5m Carbimpact* - **8**
+- *Autotune ISF Adjustment Fraction* - **1**
+- *Remaining Carbs Fraction* - **1**
+- *Remaining Carbs Cap* - **90**
+- *Noisy CGM Target Multiplier* - **1.3**
 
 ### Basal Profile
-- Copy from old **Loop, FAX** or **Nightscout**,, or as advised.
+
+- Copy from old **Loop** or **Nightscout**, or as advised.
 
 ![_Example Basal Profile in Nightscout_](images/example_basal_profile.png)
-<figcaption>_Example Basal Profile listed in Nightscout profile_</figcaption>
 
 ### Insulin Sensitivities
 - **Use _Autotune_ value**
+
+To calculate your theoretical ISF:
+```
+ISF = c / TDD / BG
+    c = 277700 if using mg/dL
+    c = 857 if using mmol/L
+    TDD = average total daily insulin (bolus plus basal)
+    BG = target blood glucose
+```
 
 ### Carb Ratios
 - **Use _Autotune calculated value_**
@@ -75,7 +129,7 @@ If not mentioned, leave the existing _Default Settings_.
 
 ## Individual Settings
 
-The following settings are unique to each individual:
+The following settings can be changed to e unique to each individual:
 
 - Max IOB
 - Autosens Max
@@ -94,6 +148,6 @@ A up-to-date listing of **BCDiabetes default iAPS settings** can be viewed at:
 
 This listing is useful if you need to re-enter the default settings after an unexpected update, or compare your settings to current BCD defaults.
 
-Hovering your mouse (but not clicking) over many of the listings will bring up after a brief interval an explanation of what each setting means and its relevance.
+The Settings in RED are those unique to each individual.
 
 

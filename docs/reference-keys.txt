@@ -8,6 +8,7 @@ notifications
 configuration
 preferences
 freeaps-x
+statistics
 openaps-main-settings
 dynamic-settings
 openaps-smb-settings
@@ -76,7 +77,7 @@ openaps-main-settings-1
 dynamic-settings-1
 open-aps-smb-settings
 openaps-targets-settings-1
-openaps-other-settings
+openaps-other-settings-1
 use-auto-isf
 autoisf-settings
 bc-diabetes-looping-agreement
@@ -91,6 +92,3 @@ individual-patient-data-ipd-sharing-statement
 governing-law
 jurisdiction
 consent
-statistics
-openaps-other-settings-1
-basal-profile-1
