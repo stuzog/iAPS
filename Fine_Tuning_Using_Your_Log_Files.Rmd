@@ -119,6 +119,7 @@ When you make the change, give it 24 hours before checking and adjusting again.
 
 ### An Easier Way for the Rest of Us
 Heres a much easier way for non-technical people:
+
 * Email log files to yourself
 * Open `log_prev.txt`
 * Press `[CONTROL/COMMAND] + F` to perform a search
