@@ -55,7 +55,7 @@ The *Terminal* application is in *Applications > Utilities > Terminal*
   * `path/to/the/log/files/folder` will appear next to `cd`
 * Press [ENTER/RETURN]. This will change *Terminal* to the log file directory. 
 
-You can type `ls` then tap [RETURN/ENTER] to list the log files.  
+You can type `ls` then tap [RETURN/ENTER] to list the log files. 
 The following commands will now work correctly.
 
 ### Find and Compare The Ratio of SMB-Limited Lines
@@ -97,7 +97,7 @@ There will be entries for both *maxUAMSMBBasalMinutes* and *maxSMBBasalMinutes*
 
 Optimally, you want to have more "not limited" lines then limited, with limited lines being less then 5% of all of the lines. If they are less than 5% of all lines, you don't need to change your settings.
 
-To adjust *maxUAMSMBBasalMinutes* to reduce the percentage of lines that are limited, look for the line that represents about the mid-way of limited values.  For example, if you have something like:
+To adjust *maxUAMSMBBasalMinutes* to reduce the percentage of lines that are limited, look for the line that represents about the mid-way of limited values. For example, if you have something like:
 
 ```
 DEV: JavaScript log: SMB limited by maxUAMSMBBasalMinutes [ 60m ]: 1.5U ( 6.28U )
@@ -132,3 +132,41 @@ Search for either is limited or is not limited to get the numbers for both. If t
 To check this (except the first day or so), run the above commands on the `log_prev.txt` file, which reports the previous 24-hour period. Leave it run for a full day before rechecking.
 
 If everything else is set up correctly for you, these SMB maximums wont be needed in the future. But now you can know for sure that they are based on the results returned in your log files.
+
+## Sending Log Files After A Crash
+
+After an unexpected crash of the iAPS app, the developer will likely want to see your log files. This is a bit more complicated because these files are quite large.
+
+1. Go to _iAPS -> Settings_ 
+1. Scroll all the way to the bottom of the list
+1. Tap _Share logs_
+1. Tap _Save to Files_
+
+_Files.app_ should offer to put them in the _iAPS Folder_ (top center). If not, then you may need to tap _Back_ a couple of times until it shows _iAPS_ top center.
+
+Tap the _logs folder_ and tap _Save_ (top right). Always put them in the iAPS/logs" folder, to keep them separate.
+
+Open _Files.app_ and find the _iAPS/logs_ folder. You should see 2 files: "log" and "log_prev"
+
+1. Tap (...) (top right)
+1. Tap _Select_
+1. Tap the check-dots beside both those log files.
+1. Tap (...) (for some reason it's bottom right now).
+Tap _Compress_. This will create a file called "Archive.zip".
+1. Tap _(...)_ again (top right)
+1. Tap _Select_ again.
+1. This time tap the check-dot beside or inside "Archive.zip"
+1. Tap the _Share icon_ (box with an up arrow, bottom left)
+1. Scroll the app icons until you find _Slack_ (You may have to tap _..._ to see more apps)
+1. Tap the Slack icon, **making sure that BCDiabetes Loopers is selected as the Workspace**
+1. Tap the "destination" field
+1. Scroll to the bottom, tap _iAPS-crashes_
+
+Done! (It's a lot easier the second time you do it!)
+Two final notes:
+
+1. These files are very large, so it's a good idea to delete them afterwards. But be careful to ONLY delete the log files: there is important data in some of the other files in the iAPS folder.
+
+2. The software always tries to write the same two files (log" and "log_prev"). If there is already a file with those names in the folder, then the new ones get a number tacked onto the end ("log 2" and "log prev 2"... then 3, and so on. This will create "Archive 2.zip". Send the ones with the highest number.
+
+(Thanks to David Cheslow for this.)
